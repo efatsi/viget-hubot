@@ -85,7 +85,6 @@ memeGenerator = (msg, generatorID, imageID, text0, text1, callback) ->
       text1: text1
     .get() (err, res, body) ->
       result = JSON.parse(body)['result']
-      console.log(body)
       if result? and result['instanceUrl']? and result['instanceImageUrl']? and result['instanceID']?
         instanceID = result['instanceID']
         instanceURL = result['instanceUrl']
@@ -95,7 +94,7 @@ memeGenerator = (msg, generatorID, imageID, text0, text1, callback) ->
           if preferredDimensions?
             callback "http://images.memegenerator.net/instances/#{preferredDimensions}/#{instanceID}.jpg"
           else
-            callback "http://memegenerator.net#{img}"
+            callback "http://images.memegenerator.net/instances/#{instanceID}.jpg"
       else
         msg.reply "Sorry, I couldn't generate that image."
 
