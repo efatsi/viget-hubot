@@ -19,7 +19,13 @@
     "optparse": "1.0.3",
     "scoped-http-client": "0.9.6",
     "log": "1.2.0",
-    "connect": "1.8.5"
+    "connect": "1.8.5",
+    "htmlparser": "1.7.3",
+    "nodepie": "0.4.0",
+    "jsdom": "0.2.10",
+    "underscore": "1.2.3",
+    "underscore.string": "2.0.0",
+    "soupselect": "0.2.0"
   },
 
   "main": "./index",
