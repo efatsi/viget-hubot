@@ -8,35 +8,6 @@ Instead this repo provides a library that's distributed by `npm` that you
 simply require in your project. Follow the instructions below and get your own
 hubot ready to deploy.
 
-## Getting your own
-
-Make sure you have [node.js][nodejs] and [npm][npmjs] (npm comes with node v0.6.5+) installed.
-
-Download the [latest version of hubot][hubot-latest].
-
-Then follow the instructions in the [README][readme] in the extracted `hubot`
-directory.
-
-[nodejs]: http://nodejs.org
-[npmjs]: http://npmjs.org
-[hubot-latest]: https://github.com/github/hubot/downloads
-[readme]: https://github.com/github/hubot/blob/master/src/templates/README.md
-
-## Adapters
-
-Adapters are the interface to the service you want your hubot to run on. This
-can be something like Campfire or IRC. There are a number of third party
-adapters that the community have contributed. Check the
-[hubot wiki][hubot-wiki] for the available ones and how to create your own.
-
-Please submit issues and pull requests for third party adapters to the adapter
-repo not this repo unless it's the Campfire or Shell adapter.
-
-[hubot-wiki]: https://github.com/github/hubot/wiki
-[third-party-adapters]: https://github.com/github/hubot/tree/master/src/adapters/third-party
-[split-subpath]: http://help.github.com/split-a-subpath-into-a-new-repo/
-[logjs]: https://github.com/visionmedia/log.js
-
 ## hubot-scripts
 
 Hubot ships with a number of default scripts, but there's a growing number of
@@ -48,6 +19,8 @@ individual scripts.
 
 [hubot-scripts]: https://github.com/github/hubot-scripts
 [hubot-scripts-readme]: https://github.com/github/hubot-scripts#readme
+
+When installing a new script make sure to add any of it's dependencies to package.json.
 
 ## HTTP Listener
 
