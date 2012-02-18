@@ -25,7 +25,8 @@
     "jsdom": "0.2.10",
     "underscore": "1.2.3",
     "underscore.string": "2.0.0",
-    "soupselect": "0.2.0"
+    "soupselect": "0.2.0",
+    "wolfram": "0.2.0"
   },
 
   "main": "./index",
