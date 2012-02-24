@@ -3,4 +3,4 @@
 
 module.exports = (robot) ->
   robot.hear 'mongodb', (msg) ->
-    msg.send("mongodb == :rocket: :rainbow:")
+    msg.send("mongodb == :poop: :toilet:")
