@@ -61,7 +61,11 @@ module.exports = (robot) ->
       msg.send url
 
   robot.respond /(YO DAWG .*) (SO .*)/i, (msg) ->
-	  memeGenerator msg, 79, 108785, msg.match[1], msg.match[2], (url) ->
+    memeGenerator msg, 79, 108785, msg.match[1], msg.match[2], (url) ->
+      msg.send url
+
+  robot.respond /(.*\??) (IT'?S SHIT( AND I NEVER USE IT)?)/i, (msg) ->
+    memeGenerator msg, 625273, 3049789, msg.match[1], "IT'S SHIT AND I NEVER USE IT", (url) ->
       msg.send url
 
 memeGenerator = (msg, generatorID, imageID, text0, text1, callback) ->
