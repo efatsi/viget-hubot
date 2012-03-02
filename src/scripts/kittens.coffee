@@ -1,4 +1,3 @@
-
 # Kittens!
 #
 # kitten me - A randomly selected kitten
