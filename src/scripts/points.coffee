@@ -34,7 +34,7 @@ module.exports = (robot) ->
     name = name.split(' ').slice(0, -1).join(' ')
     if robot.houses[name] 
       delete robot.houses[name]
-      msg.send "#{name} house who? I've already forgotten about them."
+      msg.send "#{name} who? I've already forgotten about them."
     else 
       msg.send "I don't think that's actually a house."
 
