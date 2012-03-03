@@ -9,7 +9,7 @@ module.exports = (robot) ->
   getAmbiguousUserText = (users) ->
     "Be more specific, I know #{users.length} people named like that: #{(user.name for user in users).join(", ")}"
 
-  robot.hear /^[0-9]+/i, (msg) ->
+  robot.hear /@[0-9]+/i, (msg) ->
 
     points = msg.match[1]
     direction = msg.match[2]
