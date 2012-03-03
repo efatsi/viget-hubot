@@ -1,6 +1,6 @@
 # Assign points to houses
 #
-# 5 points to <house>
+# 5 points (to|for) <house>
 # 10 points from <house>
 # who gets the house cup
 # remove <house> house
