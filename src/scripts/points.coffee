@@ -3,17 +3,17 @@
 # 5 points (to|for) <house>
 # 10 points from <house>
 # who gets the house cup
-# remove <house> house
+# forget <house> house
+# check <house> house
 
 module.exports = (robot) ->
 
   robot.hear /^[0-9]+ (points|point) [a-zA-Z]+ .*?$/i, (msg) ->
     robot.houses or= {}
     command = parseCommand(msg)
-    msg.send "Okay, #{command.points} House #{command.possessive} been #{command.action} #{command.house} house."
+    msg.send "#{command.points} point #{command.action} #{command.house} house."
     points = if command.add_to then command.points else command.points * -1
     adjustPoints(command.house, points)
-    msg.send "#{command.house} has " + robot.houses[command.house] + " points."
 
   robot.hear /who gets the house cup/i, (msg) ->
     name = 'No one'
@@ -25,10 +25,19 @@ module.exports = (robot) ->
         name = key
         points = value
     points = if name == 'No one' then 'any' else points
-    msg.send "#{name} gets the House Cup! #{name} has #{points} points."
+    msg.send "#{name} gets the House Cup! #{name} has #{points} " + getPointNoun(points) + "."
     msg.send(score) for score in tally
 
-  robot.hear /^remove [a-zA-Z\s].*? house/i, (msg) ->
+  robot.hear /^check [a-zA-Z\s].*? house/i, (msg) ->
+    robot.houses or= {}
+    name = getHouseName(msg.match[0], 1)
+    name = name.split(' ').slice(0, -1).join(' ')
+    if robot.houses[name] 
+      msg.send "#{name} has #{robot.houses[name]} " + getPointNoun(robot.houses[name]) + "."
+    else 
+      msg.send "I don't think that's actually a house."
+
+  robot.hear /^forget [a-zA-Z\s].*? house/i, (msg) ->
     robot.houses or= {}
     name = getHouseName(msg.match[0], 1)
     name = name.split(' ').slice(0, -1).join(' ')
@@ -46,7 +55,6 @@ module.exports = (robot) ->
       house : getHouseName(msg.match[0], 3)
     }
     command.action = if command.add_to then 'awarded to' else 'deducted from'
-    command.possessive = if command.points is 1 then 'Point has' else 'Points have'
     command
 
   adjustPoints = (name, points)->
@@ -63,6 +71,9 @@ module.exports = (robot) ->
       if i != max 
         name += ' '
     toTitleCase(name)
+
+  getPointNoun = (points)->
+    if points == 1 then 'point' else 'points'
 
   removePunctuation = (str)->
     str.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g, "")
