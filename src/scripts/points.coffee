@@ -12,8 +12,7 @@ module.exports = (robot) ->
   robot.hear /^\d points .*?\b .*?\b, (msg) ->
     points = msg.match[1]
     direction = msg.match[2]
+    action = msg.match[2] ? 'deducted from' : 'added to'
     house = msg.match[3].trim()
-    msg.send points
-    msg.send direction
-    msg.send house
+    msg.send "Okay, {{points}} points have been {{action}} {{house}} house."
 
