@@ -59,10 +59,13 @@ module.exports = (robot) ->
     array = string.split(' ').slice(startPoint)
     max = array.length - 1
     for name_section, i in array
-      name += name_section
+      name += removePunctuation(name_section)
       if i != max 
         name += ' '
     toTitleCase(name)
+
+  removePunctuation = (str)->
+    str.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()]/g, "")
 
   toTitleCase = (str)->
     str.replace(/\w\S*/g, titleCaseWord)
