@@ -26,7 +26,7 @@ module.exports = (robot) ->
         points = value
     points = if name == 'No one' then 'any' else points
     msg.send "#{name} gets the House Cup! #{name} has #{points} " + getPointNoun(points) + "."
-    msg.send(score) for score in tally
+    delay 2500, -> msg.send(score) for score in tally
 
   robot.hear /^check [a-zA-Z\s].*? house/i, (msg) ->
     robot.houses or= {}
@@ -83,3 +83,5 @@ module.exports = (robot) ->
 
   titleCaseWord = (str)->
     return str.charAt(0).toUpperCase() + str.substr(1).toLowerCase()
+
+  delay = (ms, func) -> setTimeout func, ms
