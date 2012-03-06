@@ -64,7 +64,7 @@ module.exports = (robot) ->
     memeGenerator msg, 79, 108785, msg.match[1], msg.match[2], (url) ->
       msg.send url
 
-  robot.hear /What does DHH think about (.+\?)/i, (msg) ->
+  robot.hear /What does DHH think (?:about|of) (.+\?)/i, (msg) ->
     memeGenerator msg, 625273, 3049789, msg.match[1], "IT'S SHIT AND I NEVER USE IT", (url) ->
       msg.send url
 
