@@ -78,29 +78,32 @@ memeGenerator = (msg, generatorID, imageID, text0, text1, callback) ->
     msg.send "Then ensure the HUBOT_MEMEGEN_USERNAME and HUBOT_MEMEGEN_PASSWORD environment variables are set"
     return
 
-  msg.http('http://version1.api.memegenerator.net/Instance_Create')
-    .query
-      username: username,
-      password: password,
-      languageCode: 'en',
-      generatorID: generatorID,
-      imageID: imageID,
-      text0: text0,
-      text1: text1
-    .get() (err, res, body) ->
-      result = JSON.parse(body)['result']
-      if result? and result['instanceUrl']? and result['instanceImageUrl']? and result['instanceID']?
-        instanceID = result['instanceID']
-        instanceURL = result['instanceUrl']
-        img = result['instanceImageUrl']
-        msg.http(instanceURL).get() (err, res, body) ->
-          # Need to hit instanceURL so that image gets generated
-          if preferredDimensions?
-            callback "http://images.memegenerator.net/instances/#{preferredDimensions}/#{instanceID}.jpg"
-          else
-            callback "http://images.memegenerator.net/instances/#{instanceID}.jpg"
-      else
-        msg.reply "Sorry, I couldn't generate that image."
+  try
+    msg.http('http://version1.api.memegenerator.net/Instance_Create')
+      .query
+        username: username,
+        password: password,
+        languageCode: 'en',
+        generatorID: generatorID,
+        imageID: imageID,
+        text0: text0,
+        text1: text1
+      .get() (err, res, body) ->
+        result = JSON.parse(body)['result']
+        if result? and result['instanceUrl']? and result['instanceImageUrl']? and result['instanceID']?
+          instanceID = result['instanceID']
+          instanceURL = result['instanceUrl']
+          img = result['instanceImageUrl']
+          msg.http(instanceURL).get() (err, res, body) ->
+            # Need to hit instanceURL so that image gets generated
+            if preferredDimensions?
+              callback "http://images.memegenerator.net/instances/#{preferredDimensions}/#{instanceID}.jpg"
+            else
+              callback "http://images.memegenerator.net/instances/#{instanceID}.jpg"
+        else
+          msg.reply "Sorry, I couldn't generate that image."
+  catch err
+    msg.send "MemeGenerator is down"
 
 khanify = (msg) ->
   msg = msg.toUpperCase()
