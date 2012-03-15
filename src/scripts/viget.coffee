@@ -28,3 +28,6 @@ module.exports = (robot) ->
     
   robot.hear /deal with it/i, (msg) ->
     msg.send(msg.random deals)
+    
+  robot.hear /(dancing|dance|zebra)/i, (msg) ->
+    msg.send('http://i.imgur.com/Npizs.gif')
