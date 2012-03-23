@@ -31,3 +31,6 @@ module.exports = (robot) ->
     
   robot.hear /(dancing|dance|zebra)/i, (msg) ->
     msg.send('http://i.imgur.com/Npizs.gif')
+  
+  robot.hear /(mind('?s)?(\s|( (has )?been ))blown)|(blow(ing|n)? my mind)/i, (msg) ->
+    msg.send('http://i100.photobucket.com/albums/m17/wayman_lee/mind_blown.gif')
