@@ -25,12 +25,16 @@ module.exports = (robot) ->
 
   robot.hear /cool\s+story,?\s*bro/i, (msg) ->
     msg.send(msg.random cool_stories)
-    
+
   robot.hear /deal with it/i, (msg) ->
     msg.send(msg.random deals)
-    
+
   robot.hear /(dancing|dance|zebra)/i, (msg) ->
     msg.send('http://i.imgur.com/Npizs.gif')
-  
+
   robot.hear /(mind('?s)?(\s|( (has )?been ))blown)|(blow(ing|n)? my mind)/i, (msg) ->
     msg.send('http://i100.photobucket.com/albums/m17/wayman_lee/mind_blown.gif')
+
+  # Inspired by Fosome
+  robot.hear /(thinking|1\s*sec|one\s*sec)/, (msg) ->
+    msg.send('https://www.loopt.com/images/spinner.gif')
