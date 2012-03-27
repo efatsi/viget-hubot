@@ -36,5 +36,5 @@ module.exports = (robot) ->
     msg.send('http://i100.photobucket.com/albums/m17/wayman_lee/mind_blown.gif')
 
   # Inspired by Fosome
-  robot.hear /(thinking|1\s*sec|one\s*sec)/, (msg) ->
+  robot.hear /^\s*(thinking|1\s*sec|one\s*sec)\s*$/, (msg) ->
     msg.send('https://www.loopt.com/images/spinner.gif')
