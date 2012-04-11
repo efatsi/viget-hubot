@@ -46,7 +46,7 @@ module.exports = (robot) ->
   robot.hear /deal with it/i, (msg) ->
     msg.send(msg.random deals)
 
-  robot.hear /(dancing|dance|zebra)/i, (msg) ->
+  robot.hear /\b(dancing|dance|zebra)\b/i, (msg) ->
     msg.send('http://i.imgur.com/Npizs.gif')
 
   robot.hear /(mind('?s)?(\s|( (has )?been ))blown)|(blow(ing|n)? my mind)|(mind blowing)/i, (msg) ->
@@ -56,5 +56,5 @@ module.exports = (robot) ->
   robot.hear /^\s*(thinking|1\s*sec|one\s*sec)\s*$/, (msg) ->
     msg.send('https://www.loopt.com/images/spinner.gif')
   
-  robot.hear /(argument|invalid|wrong)/i, (msg) ->
+  robot.hear /argument is invalid/i, (msg) ->
     msg.send(msg.random argument_invalids)
