@@ -28,7 +28,8 @@
     "soupselect": "0.2.0",
     "wolfram": "0.2.0",
     "wwwdude": "0.1.0",
-    "redis": "0.7.1"
+    "redis": "0.7.1",
+    "querystring": "0.1.0"
   },
 
   "main": "./index",
