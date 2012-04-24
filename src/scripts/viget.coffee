@@ -55,6 +55,9 @@ module.exports = (robot) ->
   # Inspired by Fosome
   robot.hear /^\s*(thinking|1\s*sec|one\s*sec)\s*$/, (msg) ->
     msg.send('https://www.loopt.com/images/spinner.gif')
-  
+
   robot.hear /argument is invalid/i, (msg) ->
     msg.send(msg.random argument_invalids)
+
+  robot.hear /ok[,\s]+pal/i, (msg) ->
+    msg.send('http://gasgrills-onsale.net/wp-content/uploads/2011/08/transparent.gif')
