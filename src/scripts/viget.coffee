@@ -13,7 +13,8 @@ deals = [
   'http://assets0.ordienetworks.com/images/GifGuide/DealWithIt/30wphfo.jpg.gif',
   'http://assets0.ordienetworks.com/images/GifGuide/DealWithIt/dealwithitedwood.gif',
   'http://assets0.ordienetworks.com/images/GifGuide/DealWithIt/Terminator-deal-with-it.gif',
-  'http://i3.kym-cdn.com/photos/images/original/000/087/367/dealwithtrollplz.gif'
+  'http://i3.kym-cdn.com/photos/images/original/000/087/367/dealwithtrollplz.gif',
+  'http://chzmemebase.files.wordpress.com/2012/05/internet-memes-interview-nope.gif'
 ]
 
 argument_invalids = [
