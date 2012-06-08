@@ -47,7 +47,7 @@ module.exports = (robot) ->
   robot.hear /deal with it/i, (msg) ->
     msg.send(msg.random deals)
 
-  robot.hear /(^|[\s,"':;!?\(\.]|)(dancing|dance|zebra)([\s\.\(\),"'!?:;]|$)/i, (msg) ->
+  robot.hear /(^|[\s,"':;!?\(\.])(dancing|dance|zebra)([\s\.\(\),"'!?:;]|$)/i, (msg) ->
     msg.send('http://i.imgur.com/Npizs.gif')
 
   robot.hear /(mind('?s)?(\.?\s|( (has )?been ))blown)|(blow(ing|n)?\.? my\.? mind)|(mind\.? blowing)/i, (msg) ->
