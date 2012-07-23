@@ -50,7 +50,7 @@ module.exports = (robot) ->
   robot.hear /(^|[\s,"':;!?\(\.])(dancing|dance|zebra)([\s\.\(\),"'!?:;]|$)/i, (msg) ->
     msg.send('http://i.imgur.com/Npizs.gif')
 
-  robot.hear /(mind('?s)?(\.?\s|( (has )?been ))blown)|(blow(ing|n)?\.? my\.? mind)|(mind\.? blowing)/i, (msg) ->
+  robot.hear /(mind('?s)?(\.?\s|( (has )?been ))?blown)|(blow(ing|n)?\.? my\.? mind)|(mind\.?\s?blowing)/i, (msg) ->
     msg.send('http://i100.photobucket.com/albums/m17/wayman_lee/mind_blown.gif')
 
   # Inspired by Fosome
