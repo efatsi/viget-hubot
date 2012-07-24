@@ -68,6 +68,10 @@ module.exports = (robot) ->
     memeGenerator msg, 625273, 3049789, msg.match[1], "IT'S SHIT AND I NEVER USE IT", (url) ->
       msg.send url
 
+  robot.hear /What does DHH really think (?:about|of) (.+\?)/i, (msg) ->
+    memeGenerator msg, 625273, 3049789, msg.match[1], "OH HELL YES", (url) ->
+      msg.send url
+
 memeGenerator = (msg, generatorID, imageID, text0, text1, callback) ->
   username = process.env.HUBOT_MEMEGEN_USERNAME
   password = process.env.HUBOT_MEMEGEN_PASSWORD
